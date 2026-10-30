@@ -4,9 +4,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import tailwindcss from "@tailwindcss/vite";
-import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
-import { nitro } from "nitro/vite";
+import tsconfigPaths from "vite-tsconfig-paths";
 import { defineConfig } from "vite";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -55,11 +54,10 @@ const localAssetsPlugin = {
   },
 };
 
+// True SPA build — outputs to dist/ with index.html for static hosting and publisher
 export default defineConfig({
-  plugins: [localAssetsPlugin, tanstackStart(), viteReact(), tailwindcss(), nitro()],
-  resolve: {
-    tsconfigPaths: true,
-  },
+  base: "./",
+  plugins: [localAssetsPlugin, tsconfigPaths(), viteReact(), tailwindcss()],
   optimizeDeps: {
     exclude: ["gsap", "@gsap/react"],
   },
