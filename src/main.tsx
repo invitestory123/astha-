@@ -20,3 +20,4 @@ if (rootEl) {
     </StrictMode>,
   );
 }
+

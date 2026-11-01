@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Together with their families, Astha (D/o Rajesh & Sudha Gupta) and Harshad (S/o Sureshbhai & Bhanuben) joyfully invite you to celebrate their wedding on 12 December 2026 at Hotel Dev Arjun Singh.",
+          "Together with their families, Astha (D/o Rajesh & Sudha Gupta) and Harshad (S/o Sureshbhai & Bhanuben Harsoda) joyfully invite you to celebrate their wedding on 12 December 2026 at Hotel Dev Arjun Singh.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Astha & Harshad Wedding" },
@@ -134,6 +134,18 @@ function Invitation() {
           <Reveal delay={400}>
             <ScratchRevealDate />
           </Reveal>
+          <Reveal delay={500}>
+            <div className="mx-auto mt-6 max-w-md rounded-2xl border border-gold/30 bg-deep/50 px-6 py-4 shadow-[0_8px_32px_rgba(212,175,55,0.15)] backdrop-blur-sm">
+              <p className="font-display text-xl tracking-[0.25em] gold-text sm:text-2xl">
+                ॥ शुभविवाह ॥
+              </p>
+              <div className="mx-auto my-2.5 h-px w-20 bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
+              <p className="text-sm leading-relaxed tracking-wide text-gold-soft/95 sm:text-base">
+                वक्रतुण्ड महाकाय सूर्यकोटि समप्रभः ।<br />
+                निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥
+              </p>
+            </div>
+          </Reveal>
           <Reveal delay={600}>
             <div className="mt-10 text-[0.6rem] uppercase tracking-[0.4em] text-gold-soft/60">
               scroll
@@ -150,24 +162,42 @@ function Invitation() {
           <QuoteScrub text="“Where two souls meet, the lotus blooms — and every path becomes a garden.”" />
           <Reveal delay={200}>
             <div className="mx-auto mt-8 w-24 gold-rule" />
-            <div className="mt-6 text-sm leading-loose text-muted-foreground">
-              <p>With the love and divine blessings of our respected parents</p>
-              <div className="my-3 grid grid-cols-1 gap-2 text-gold-soft sm:grid-cols-2 sm:gap-6">
-                <div className="rounded-xl border border-gold/20 bg-deep/30 p-3">
-                  <p className="text-[0.65rem] uppercase tracking-[0.25em] text-gold/70">Groom's Parents</p>
-                  <p className="font-display text-lg text-gold-soft">Smt. Bhanuben &amp; Shri Sureshbhai</p>
-                  <p className="text-xs text-muted-foreground/80">Son: Harshad</p>
+            <div className="mx-auto mt-8 max-w-xl rounded-3xl border border-gold/35 bg-deep/55 p-8 shadow-[0_15px_45px_rgba(0,0,0,0.4)] backdrop-blur-md">
+              <p className="font-display text-xl uppercase tracking-[0.25em] text-gold-soft sm:text-2xl">
+                A Blessing of Love
+              </p>
+              <p className="mt-4 text-sm leading-relaxed text-foreground/90 sm:text-base sm:leading-loose">
+                With the grace of the Almighty, the unconditional love of our parents, and the heartfelt blessings of our elders, we begin this beautiful journey of togetherness.
+              </p>
+
+              <div className="mx-auto my-6 h-px w-32 bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
+
+              <div className="space-y-5 text-center">
+                <div>
+                  <p className="text-[0.68rem] font-medium uppercase tracking-[0.25em] text-gold/80">
+                    Groom's Parents
+                  </p>
+                  <p className="mt-1 font-display text-lg text-gold-soft sm:text-xl">
+                    Smt. Bhanuben Harsoda &amp; Shri Sureshbhai Harsoda
+                  </p>
                 </div>
-                <div className="rounded-xl border border-gold/20 bg-deep/30 p-3">
-                  <p className="text-[0.65rem] uppercase tracking-[0.25em] text-gold/70">Bride's Parents</p>
-                  <p className="font-display text-lg text-gold-soft">Smt. Sudha Gupta &amp; Shri Rajesh Gupta</p>
-                  <p className="text-xs text-muted-foreground/80">Daughter: Astha</p>
+
+                <div>
+                  <p className="text-[0.68rem] font-medium uppercase tracking-[0.25em] text-gold/80">
+                    Bride's Parents
+                  </p>
+                  <p className="mt-1 font-display text-lg text-gold-soft sm:text-xl">
+                    Smt. Sudha Gupta &amp; Shri Rajesh Gupta
+                  </p>
                 </div>
               </div>
-              <p className="mt-4">
-                We joyfully invite you to grace the auspicious wedding ceremony of
+
+              <div className="mx-auto my-6 h-px w-20 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                We joyfully invite you to celebrate the wedding union of
               </p>
-              <p className="mt-1 font-display text-2xl gold-text tracking-wide">
+              <p className="mt-1 font-display text-2xl gold-text tracking-wide sm:text-3xl">
                 Astha &amp; Harshad
               </p>
             </div>
@@ -250,7 +280,7 @@ function Invitation() {
         <p className="relative text-[0.58rem] uppercase tracking-[0.55em] text-gold-soft/55">
           With love, and with your blessings
         </p>
-        <p className="relative mt-7 text-balance font-display text-6xl leading-none gold-text sm:text-8xl">
+        <p className="relative mt-7 whitespace-nowrap font-display text-[clamp(2.2rem,8vw,5.5rem)] leading-none gold-text">
           Astha <span className="font-light italic text-gold-soft/55">&amp;</span> Harshad
         </p>
         <p className="relative mx-auto mt-7 max-w-xl font-display text-lg italic leading-relaxed text-foreground/65">

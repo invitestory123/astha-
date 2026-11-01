@@ -77,7 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Together with their families, Astha (D/o Rajesh & Sudha Gupta) and Harshad (S/o Sureshbhai & Bhanuben) joyfully invite you to celebrate their wedding on 12 December 2026 at Hotel Dev Arjun Singh.",
+          "Together with their families, Astha (D/o Rajesh & Sudha Gupta) and Harshad (S/o Sureshbhai & Bhanuben Harsoda) joyfully invite you to celebrate their wedding on 12 December 2026 at Hotel Dev Arjun Singh.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Astha & Harshad Wedding" },

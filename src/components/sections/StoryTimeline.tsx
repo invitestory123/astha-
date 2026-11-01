@@ -19,7 +19,7 @@ type Milestone = {
 
 const STORY: Milestone[] = [
   {
-    year: "2019 — Meteorology",
+    year: "2019",
     title: "The First Meeting",
     text: "A monsoon evening in Bengaluru. Two strangers share one umbrella at a tram crossing, and the rain never quite lets up.",
     photo: {

@@ -171,7 +171,7 @@ def create_og_image():
 
     # Parents Blessing Line
     font_parents = ImageFont.truetype(r"C:\Windows\Fonts\pala.ttf", 14)
-    parents_text = "D/o Rajesh & Sudha Gupta  ✦  S/o Sureshbhai & Bhanuben"
+    parents_text = "D/o Rajesh & Sudha Gupta  ✦  S/o Sureshbhai & Bhanuben Harsoda"
     draw.text((cx, 510), parents_text, font=font_parents, fill=TEXT_MUTED, anchor="mm")
 
     # Hashtag & branding

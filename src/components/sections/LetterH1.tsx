@@ -9,11 +9,11 @@ import { Letters } from "@/hooks/use-letters";
 export function LetterH1() {
   return (
     <h1
-      className="mt-5 font-display text-6xl leading-none gold-text sm:text-8xl"
+      className="mt-5 inline-flex flex-nowrap items-center justify-center whitespace-nowrap font-display text-[clamp(2rem,7.5vw,5.5rem)] leading-none gold-text"
       style={{ opacity: 1 }}
     >
       <Letters text="Astha" />
-      <span className="mx-3 align-middle text-3xl sm:text-5xl">&amp;</span>
+      <span className="mx-2 align-middle text-[0.65em] font-light italic sm:mx-4">&amp;</span>
       <Letters text="Harshad" />
     </h1>
   );

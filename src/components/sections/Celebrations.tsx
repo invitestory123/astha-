@@ -24,44 +24,44 @@ type Event = {
 
 const EVENTS: Event[] = [
   {
-    name: "Mehendi & Sangeet",
+    name: "Mehendi",
     date: "11 December 2026",
-    time: "4:00 PM",
+    time: "11:00 AM Onwards",
     place: "Hotel Dev Arjun Singh",
-    note: "Marigolds, henna, and an evening of dance, dhol and celebration.",
-    start: "2026-12-11T16:00:00+05:30",
-    end: "2026-12-11T22:00:00+05:30",
-    slug: "mehendi-sangeet",
+    note: "Marigolds, intricate henna designs, and joyous music to kickstart the festivities.",
+    start: "2026-12-11T11:00:00+05:30",
+    end: "2026-12-11T16:00:00+05:30",
+    slug: "mehendi",
   },
   {
-    name: "Baraat Swagat",
+    name: "Tilak & Ring Ceremony",
+    date: "11 December 2026",
+    time: "6:00 PM Onwards",
+    place: "Hotel Dev Arjun Singh",
+    note: "A glittering evening of auspicious rituals, exchange of rings, and celebration.",
+    start: "2026-12-11T18:00:00+05:30",
+    end: "2026-12-11T23:00:00+05:30",
+    slug: "tilak-ring-ceremony",
+  },
+  {
+    name: "Haldi (Phoolon wali haldi)",
     date: "12 December 2026",
-    time: "6:00 PM",
+    time: "11:00 AM Onwards",
     place: "Hotel Dev Arjun Singh",
-    note: "Grand arrival and welcoming of the groom's procession.",
-    start: "2026-12-12T18:00:00+05:30",
-    end: "2026-12-12T19:00:00+05:30",
-    slug: "baraat",
+    note: "A vibrant morning soaked in turmeric, blooming petals, music, and laughter.",
+    start: "2026-12-12T11:00:00+05:30",
+    end: "2026-12-12T15:00:00+05:30",
+    slug: "haldi",
   },
   {
-    name: "Wedding Ceremony (Saat Phere)",
+    name: "Wedding Ceremony",
     date: "12 December 2026",
     time: "7:00 PM Onwards",
     place: "Hotel Dev Arjun Singh",
-    note: "Sacred vows and saat phere under a canopy of blessings and divine light.",
+    note: "Sacred saat phere and eternal vows under the canopy of divine light and blessings.",
     start: "2026-12-12T19:00:00+05:30",
-    end: "2026-12-12T21:30:00+05:30",
-    slug: "wedding",
-  },
-  {
-    name: "Dinner & Reception",
-    date: "12 December 2026",
-    time: "8:30 PM Onwards",
-    place: "Hotel Dev Arjun Singh",
-    note: "A royal feast, heartfelt blessings and celebratory toast.",
-    start: "2026-12-12T20:30:00+05:30",
     end: "2026-12-12T23:30:00+05:30",
-    slug: "reception",
+    slug: "wedding",
   },
 ];
 
@@ -113,7 +113,7 @@ export function Celebrations() {
       <div className="relative mx-auto max-w-4xl">
         <SectionHeader
           eyebrow="The Celebrations"
-          title="Four evenings, woven together."
+          title="Two days, woven together."
           className="mx-auto max-w-2xl"
         />
         <div className="mt-16 grid gap-6 sm:grid-cols-2">
