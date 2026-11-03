@@ -181,8 +181,10 @@ function Invitation() {
                   <p className="text-[0.68rem] font-medium uppercase tracking-[0.25em] text-gold/80">
                     Groom's Parents
                   </p>
-                  <p className="mt-1 font-display text-lg text-gold-soft sm:text-xl">
-                    Smt. Bhanuben Harsoda &amp; Shri Sureshbhai Harsoda
+                  <p className="mt-1 font-display text-lg text-gold-soft sm:text-xl leading-relaxed">
+                    <span className="whitespace-nowrap">Smt. Bhanuben Harsoda</span>
+                    <br />
+                    <span className="whitespace-nowrap">&amp; Shri Sureshbhai Harsoda</span>
                   </p>
                 </div>
 
@@ -190,8 +192,10 @@ function Invitation() {
                   <p className="text-[0.68rem] font-medium uppercase tracking-[0.25em] text-gold/80">
                     Bride's Parents
                   </p>
-                  <p className="mt-1 font-display text-lg text-gold-soft sm:text-xl">
-                    Smt. Sudha Gupta &amp; Shri Rajesh Gupta
+                  <p className="mt-1 font-display text-lg text-gold-soft sm:text-xl leading-relaxed">
+                    <span className="whitespace-nowrap">Smt. Sudha Gupta</span>
+                    <br />
+                    <span className="whitespace-nowrap">&amp; Shri Rajesh Gupta</span>
                   </p>
                 </div>
               </div>

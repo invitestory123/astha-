@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-
-const palaceImage = "https://media.invitestory.in/diya-haveli/src/assets/palace-courtyard.jpg";
+import palaceImage from "@/assets/palace-courtyard.jpg";
 
 export function PalaceReveal() {
   const ref = useRef<HTMLElement>(null);
@@ -26,7 +25,7 @@ export function PalaceReveal() {
     >
       <img
         src={palaceImage}
-        alt="Candlelit Jaipur palace courtyard reflected in a still pool"
+        alt="Ganga Dwar Robertsganj temple architecture under the sky"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-[linear-gradient(to_bottom,var(--deep),transparent_30%,transparent_65%,var(--deep))]" />
@@ -38,7 +37,7 @@ export function PalaceReveal() {
             Your seat awaits
           </p>
           <h2 className="mt-3 text-balance font-display text-5xl text-gold-soft sm:text-7xl">
-            Meet us beneath the Jaipur sky.
+            Meet us beneath the Robertsganj sky.
           </h2>
         </div>
       </div>

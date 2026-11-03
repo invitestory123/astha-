@@ -3,7 +3,6 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
 const beginningImage = "https://media.invitestory.in/diya-haveli/src/assets/story-beginning.jpg";
-const firstMeetingImage = "https://media.invitestory.in/diya-haveli/src/assets/story-first-meeting.jpg";
 const questionImage = "https://media.invitestory.in/diya-haveli/src/assets/story-question.jpg";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { ScrollTrigger, useGSAP, useMotionOk } from "@/lib/motion";
@@ -18,16 +17,6 @@ type Milestone = {
 };
 
 const STORY: Milestone[] = [
-  {
-    year: "2019",
-    title: "The First Meeting",
-    text: "A monsoon evening in Bengaluru. Two strangers share one umbrella at a tram crossing, and the rain never quite lets up.",
-    photo: {
-      src: firstMeetingImage,
-      alt: "Astha and Harshad sharing an umbrella on a rainy Bengaluru evening",
-      placement: "right",
-    },
-  },
   {
     year: "2022 — Geography",
     title: "The First Journey",
@@ -113,7 +102,7 @@ export function StoryTimeline() {
     <section data-section="story" className="relative px-6 py-32">
       <SectionHeader
         eyebrow="The Story"
-        title="Four moments, one beginning."
+        title="Moments, one beginning."
         align="center"
         className="mx-auto max-w-2xl"
       />

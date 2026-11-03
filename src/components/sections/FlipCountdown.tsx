@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { gsap } from "gsap";
 
-import { EASE_OUT_EXPO, useGSAP, useMotionOk } from "@/lib/motion";
+import { useGSAP, useMotionOk } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 const UNITS = ["Days", "Hours", "Minutes", "Seconds"] as const;
@@ -21,52 +21,32 @@ function pad(n: number) {
   return String(n).padStart(2, "0");
 }
 
-/**
- * Each unit is a small 3D "flip clock" — two faces stacked inside a
- * perspective container. When the value changes, the previous face slides
- * down and out while the new face slides down and in. Static fallback when
- * reduced motion is requested.
- *
- * Renders nothing on SSR and on the first client render so the time-based
- * value cannot disagree with hydration. The first paint after mount shows
- * the current values.
- */
 export function FlipCountdown({ target }: { target: string }) {
   const t = new Date(target).getTime();
-  const [values, setValues] = useState<number[] | null>(null);
-  const prev = useRef<number[]>([0, 0, 0, 0]);
+  const [values, setValues] = useState<number[]>(() => diff(t));
   const ok = useMotionOk();
 
   useEffect(() => {
     setValues(diff(t));
     const id = window.setInterval(() => {
-      setValues((cur) => {
-        if (cur) prev.current = cur;
-        return diff(t);
-      });
+      setValues(diff(t));
     }, 1000);
     return () => window.clearInterval(id);
   }, [t]);
 
-  // Reserve vertical space so layout doesn't jump when the digits appear.
   return (
     <div className="mx-auto grid max-w-md grid-cols-4 gap-3" suppressHydrationWarning>
-      {UNITS.map((u, i) =>
-        values ? (
-          <FlipUnit
-            key={u}
-            label={u}
-            value={values[i] ?? 0}
-            prev={prev.current[i] ?? values[i] ?? 0}
-            animate={ok}
-            highlight={
-              (u === "Days" && (values[0] ?? 0) <= 7) || (u === "Hours" && (values[1] ?? 0) <= 6)
-            }
-          />
-        ) : (
-          <FlipUnit key={u} label={u} value={0} prev={0} animate={false} highlight={false} />
-        ),
-      )}
+      {UNITS.map((u, i) => (
+        <FlipUnit
+          key={u}
+          label={u}
+          value={values[i] ?? 0}
+          animate={ok}
+          highlight={
+            (u === "Days" && (values[0] ?? 0) <= 7) || (u === "Hours" && (values[1] ?? 0) <= 6)
+          }
+        />
+      ))}
     </div>
   );
 }
@@ -74,20 +54,16 @@ export function FlipCountdown({ target }: { target: string }) {
 function FlipUnit({
   label,
   value,
-  prev,
   animate,
   highlight,
 }: {
   label: string;
   value: number;
-  prev: number;
   animate: boolean;
   highlight: boolean;
 }) {
   const boxRef = useRef<HTMLDivElement>(null);
-  const currentRef = useRef<HTMLDivElement>(null);
-  const previousRef = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
+  const textRef = useRef<HTMLDivElement>(null);
 
   // Highlight pulse: only runs once on mount if already inside the threshold.
   useGSAP(
@@ -108,29 +84,15 @@ function FlipUnit({
     [animate, highlight],
   );
 
-  // Animate when value changes.
+  // Subtle digit tick animation when value changes.
   useGSAP(
     () => {
-      if (!animate || !currentRef.current || !previousRef.current) return;
-      if (!mounted) {
-        setMounted(true);
-        return;
-      }
-      if (value === prev) return;
-      const tl = gsap.timeline();
-      tl.fromTo(
-        currentRef.current,
-        { yPercent: -100 },
-        { yPercent: 0, duration: 0.55, ease: EASE_OUT_EXPO },
-        0,
+      if (!animate || !textRef.current) return;
+      gsap.fromTo(
+        textRef.current,
+        { y: -6, opacity: 0.4 },
+        { y: 0, opacity: 1, duration: 0.35, ease: "power2.out" },
       );
-      tl.fromTo(
-        previousRef.current,
-        { yPercent: 0 },
-        { yPercent: 100, duration: 0.55, ease: EASE_OUT_EXPO },
-        0,
-      );
-      return () => tl.kill();
     },
     [animate, value],
   );
@@ -139,30 +101,15 @@ function FlipUnit({
     <div
       ref={boxRef}
       className={cn(
-        "flip-stack rounded-lg border border-gold/25 bg-card/50 px-2 py-4 text-center backdrop-blur-sm",
+        "rounded-lg border border-gold/25 bg-card/50 px-2 py-4 text-center backdrop-blur-sm",
       )}
     >
-      <div className="relative h-9 overflow-hidden">
-        {/* Previous digit (slides out downward) */}
+      <div className="relative flex h-9 items-center justify-center overflow-hidden">
         <div
-          ref={previousRef}
-          aria-hidden
-          className="flip-face font-display absolute inset-0 grid text-3xl gold-text tabular-nums"
-          style={{
-            transform: animate ? "translateY(0)" : "translateY(-100%)",
-          }}
+          ref={textRef}
+          className="font-display text-3xl gold-text tabular-nums"
         >
-          <span>{pad(prev)}</span>
-        </div>
-        {/* Current digit (slides in from the top) */}
-        <div
-          ref={currentRef}
-          className="flip-face font-display absolute inset-0 grid text-3xl gold-text tabular-nums"
-          style={{
-            transform: animate ? "translateY(-100%)" : "translateY(0)",
-          }}
-        >
-          <span>{pad(value)}</span>
+          {pad(value)}
         </div>
       </div>
       <div className="mt-1 text-[0.6rem] uppercase tracking-[0.25em] text-muted-foreground">
