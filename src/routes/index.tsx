@@ -114,28 +114,32 @@ function Invitation() {
       {/* Hero */}
       <section
         data-section="hero"
-        className="relative flex min-h-screen items-end justify-center overflow-hidden"
+        className="relative flex min-h-screen items-center justify-center overflow-hidden py-24 sm:py-32"
       >
         <HeroParallax />
-        <div className="relative z-10 mb-16 px-6 text-center">
+        <div className="relative z-10 my-auto px-6 text-center">
           <Reveal>
             <div className="mb-5 flex justify-center">
               <WeddingLogo size="lg" />
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <p className="text-[0.65rem] uppercase tracking-[0.5em] text-gold-soft/80">
+            <p className="text-[0.65rem] uppercase tracking-[0.5em] text-gold-soft/80 sm:text-xs">
               Together with their families
             </p>
           </Reveal>
           <Reveal delay={200}>
-            <LetterH1 />
+            <div className="pt-2 sm:pt-4">
+              <LetterH1 />
+            </div>
           </Reveal>
           <Reveal delay={400}>
-            <ScratchRevealDate />
+            <div className="pt-2 sm:pt-4">
+              <ScratchRevealDate />
+            </div>
           </Reveal>
           <Reveal delay={500}>
-            <div className="mx-auto mt-6 max-w-md rounded-2xl border border-gold/30 bg-deep/50 px-6 py-4 shadow-[0_8px_32px_rgba(212,175,55,0.15)] backdrop-blur-sm">
+            <div className="mx-auto mt-8 max-w-md rounded-2xl border border-gold/30 bg-deep/50 px-6 py-4 shadow-[0_8px_32px_rgba(212,175,55,0.15)] backdrop-blur-sm">
               <p className="font-display text-xl tracking-[0.25em] gold-text sm:text-2xl">
                 ॥ शुभविवाह ॥
               </p>

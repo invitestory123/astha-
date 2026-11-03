@@ -81,7 +81,7 @@ export function ScratchRevealDate() {
   };
 
   return (
-    <div className="mt-7 flex flex-col items-center">
+    <div className="mt-10 flex flex-col items-center sm:mt-14">
       <div
         className={`scratch-card relative w-[min(92vw,44rem)] overflow-hidden rounded-[1.75rem] border border-gold/40 transition-all duration-700 ${revealed ? "scratch-card-revealed" : ""}`}
       >

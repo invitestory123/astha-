@@ -9,7 +9,6 @@ import { CoverZoom } from "./CoverZoom";
 import { HoldToOpen } from "./HoldToOpen";
 import { SkipProgress } from "./SkipProgress";
 import { TapRipple } from "./TapRipple";
-import { WeddingLogo } from "./WeddingLogo";
 
 type Phase = "cover" | "opener" | "lotus" | "still" | "done";
 
@@ -107,12 +106,6 @@ export function OpeningSequence({ onFinish }: { onFinish: () => void }) {
           alt="Ornate golden and vermilion wedding invitation cover"
           paused={!showCover}
         />
-        <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center p-6 bg-deep/40 backdrop-blur-[2px] rounded-full border border-gold/40 shadow-[0_0_50px_rgba(212,175,55,0.25)] float-slow">
-          <WeddingLogo size="xl" withName />
-        </div>
-        <span className="pointer-events-none absolute inset-x-0 bottom-[8%] mx-auto block w-56 rounded-full border border-gold/40 bg-deep/60 py-2.5 text-center font-display text-xs tracking-[0.4em] text-gold-soft uppercase shadow-lg backdrop-blur-sm">
-          Tap to Open
-        </span>
       </HoldToOpen>
 
       <video

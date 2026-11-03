@@ -1,20 +1,31 @@
 import { Letters } from "@/hooks/use-letters";
 
 /**
- * Static "Astha & Harshad" headline. Rendered without entrance animation so
- * the names are always visible the moment React hydrates — no GSAP, no
- * opacity transitions, no transform. The letter spans preserve the
- * gold-text gradient and inline layout; they are not animated.
+ * Highlighted couple headline:
+ * First Bride: Astha
+ * Then &
+ * Then Groom: Harshad
  */
 export function LetterH1() {
   return (
     <h1
-      className="mt-5 inline-flex flex-nowrap items-center justify-center whitespace-nowrap font-display text-[clamp(2rem,7.5vw,5.5rem)] leading-none gold-text"
+      className="mt-6 flex flex-col items-center justify-center font-display leading-[0.88] tracking-tight sm:mt-10"
       style={{ opacity: 1 }}
     >
-      <Letters text="Astha" />
-      <span className="mx-2 align-middle text-[0.65em] font-light italic sm:mx-4">&amp;</span>
-      <Letters text="Harshad" />
+      {/* First: Bride Name */}
+      <span className="gold-text text-6xl font-normal drop-shadow-[0_4px_30px_rgba(212,175,55,0.45)] sm:text-7xl md:text-8xl lg:text-9xl">
+        <Letters text="Astha" />
+      </span>
+
+      {/* Then: & */}
+      <span className="my-2 select-none font-display text-3xl font-light italic text-gold-soft/80 sm:my-3 sm:text-5xl">
+        &amp;
+      </span>
+
+      {/* Then: Groom Name */}
+      <span className="gold-text text-6xl font-normal drop-shadow-[0_4px_30px_rgba(212,175,55,0.45)] sm:text-7xl md:text-8xl lg:text-9xl">
+        <Letters text="Harshad" />
+      </span>
     </h1>
   );
 }
