@@ -21,7 +21,6 @@ import { HeroParallax } from "@/components/sections/HeroParallax";
 import { LetterH1 } from "@/components/sections/LetterH1";
 import { QuoteScrub } from "@/components/sections/QuoteScrub";
 import { SectionHeader } from "@/components/sections/SectionHeader";
-import { StoryTimeline } from "@/components/sections/StoryTimeline";
 import { VenueMap } from "@/components/sections/VenueMap";
 import { ScrollTrigger, useGSAP } from "@/lib/motion";
 
@@ -65,7 +64,6 @@ const SECTIONS: SectionDef[] = [
   { id: "hero", label: "Hero" },
   { id: "blessing", label: "Blessing" },
   { id: "countdown", label: "Countdown" },
-  { id: "story", label: "Story" },
   { id: "celebrations", label: "Events" },
   { id: "venue", label: "Venue" },
 ];
@@ -233,9 +231,6 @@ function Invitation() {
           </Reveal>
         </div>
       </section>
-
-      {/* Story — gold thread + 3 selective photos */}
-      <StoryTimeline />
 
       <InteractivePortrait />
 
