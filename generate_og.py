@@ -141,17 +141,29 @@ def create_og_image():
     eyebrow_text = "T O G E T H E R   W I T H   T H E I R   F A M I L I E S"
     draw.text((cx, 206), eyebrow_text, font=font_eyebrow, fill=GOLD_SOFT, anchor="mm")
 
-    # Names: Astha & Harshad
+    # Names: Astha & Harshad with exact balanced spacing
+    names_baseline_y = 300
+    w_astha = font_names.getlength("Astha")
+    w_amp = font_amp.getlength("&")
+    w_harshad = font_names.getlength("Harshad")
+    name_gap = 26  # Perfectly balanced space on both sides of &
+    total_names_w = w_astha + name_gap + w_amp + name_gap + w_harshad
+
+    start_x = cx - total_names_w / 2
+    x_astha = start_x
+    x_amp = x_astha + w_astha + name_gap
+    x_harshad = x_amp + w_amp + name_gap
+
     # Draw drop shadow for names
-    names_y = 282
-    draw.text((cx - 150, names_y + 2), "Astha", font=font_names, fill=(15, 2, 4, 180), anchor="mm")
-    draw.text((cx, names_y - 2 + 2), "&", font=font_amp, fill=(15, 2, 4, 180), anchor="mm")
-    draw.text((cx + 170, names_y + 2), "Harshad", font=font_names, fill=(15, 2, 4, 180), anchor="mm")
+    shadow_offset = 2
+    draw.text((x_astha, names_baseline_y + shadow_offset), "Astha", font=font_names, fill=(15, 2, 4, 180), anchor="ls")
+    draw.text((x_amp, names_baseline_y + shadow_offset), "&", font=font_amp, fill=(15, 2, 4, 180), anchor="ls")
+    draw.text((x_harshad, names_baseline_y + shadow_offset), "Harshad", font=font_names, fill=(15, 2, 4, 180), anchor="ls")
 
     # Draw foreground names
-    draw.text((cx - 150, names_y), "Astha", font=font_names, fill=GOLD_LIGHT, anchor="mm")
-    draw.text((cx, names_y - 2), "&", font=font_amp, fill=GOLD_MAIN, anchor="mm")
-    draw.text((cx + 170, names_y), "Harshad", font=font_names, fill=GOLD_LIGHT, anchor="mm")
+    draw.text((x_astha, names_baseline_y), "Astha", font=font_names, fill=GOLD_LIGHT, anchor="ls")
+    draw.text((x_amp, names_baseline_y), "&", font=font_amp, fill=GOLD_MAIN, anchor="ls")
+    draw.text((x_harshad, names_baseline_y), "Harshad", font=font_names, fill=GOLD_LIGHT, anchor="ls")
 
     # Divider line with diamond ✦
     div_y = 354
@@ -199,6 +211,14 @@ def create_og_image():
     # Also save public/og-image.jpg at 95% quality for platforms that prefer JPG
     og_jpg_path = os.path.join("public", "og-image.jpg")
     final_rgb.save(og_jpg_path, format="JPEG", quality=95, optimize=True)
+
+    # Sync to dist/ and .output/public/ if present
+    import shutil
+    for extra_dir in ["dist", os.path.join(".output", "public")]:
+        if os.path.isdir(extra_dir):
+            shutil.copy2(og_png_path, os.path.join(extra_dir, "og-image.png"))
+            shutil.copy2(ig_png_path, os.path.join(extra_dir, "ig-image.png"))
+            shutil.copy2(og_jpg_path, os.path.join(extra_dir, "og-image.jpg"))
 
     print(f"Generated OG Image: {og_png_path} ({os.path.getsize(og_png_path)} bytes)")
     print(f"Generated IG Image: {ig_png_path} ({os.path.getsize(ig_png_path)} bytes)")
